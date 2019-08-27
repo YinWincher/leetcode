@@ -19,7 +19,12 @@ class MaxHeap{
     _deleteMax(){
         const {size,elements} = this
         elements[1] = elements[size]
-
+        elements.pop()
+        this.size--
+        let i = 1
+        while(typeof elements[i] !== 'undefined'){
+            
+        }
     }
     getMax(){
         const max = this.elements[1]
