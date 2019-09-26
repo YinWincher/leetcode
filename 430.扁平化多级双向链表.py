@@ -3,7 +3,6 @@
 #
 # [430] 扁平化多级双向链表
 #
-
 # Definition for a Node.
 class Node:
     def __init__(self, val, prev, next, child):
