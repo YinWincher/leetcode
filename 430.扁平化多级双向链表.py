@@ -17,23 +17,29 @@ class Solution:
         stack: list = []
         while head or stack:
             if head.child:
-                if head.next:
-                    head.next.prev = None
-                    stack.append(head.next)
-                head.next = head.child
-                head.child.prev = head
-                # 临时节点 
-                temNode = head.child
-                head.child = None
-                head = temNode
+                # 当前节点
+                nodeHead = head
+                # 节点child
+                nodeChild = head.child
+                # 下一个节点
+                nodeNext = head.next
+                if nodeNext:
+                    nodeNext.prev = None
+                    stack.append(nodeNext)
+                nodeHead.child = None
+                nodeHead.next = nodeChild
+                nodeChild.prev = nodeHead
+                head = nodeChild
             else:
                 if head.next:
                     head = head.next
                 else:
                     if stack:
+                        temNode = head
                         head = stack.pop(-1)
-                    head = head.next
+                        temNode.next = head
+                        head.prev = temNode
+                    else:
+                        head = None
         return dummy.next
-
-
 

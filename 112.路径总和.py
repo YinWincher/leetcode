@@ -12,5 +12,7 @@
 
 class Solution:
     def hasPathSum(self, root: TreeNode, sum: int) -> bool:
-        
+        pass
+    def ret(self,root: TreeNode, sum: int, accSum: int):
+        pass
 
